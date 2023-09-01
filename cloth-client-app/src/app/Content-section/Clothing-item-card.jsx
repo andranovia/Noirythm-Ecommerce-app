@@ -2,21 +2,18 @@ import React from 'react';
 
 const ClothingItemCard = ({ item }) => {
   return (
-    <div className="bg-white shadow-md p-4 rounded-lg w-[30rem]">
-      <div className="flex">
-        <div className="flex-shrink-0">
-          <img src={item.image} alt={item.name} className="h-[10rem] w-[10rem]" />
-        </div>
-        <div className="ml-4">
-          <h3 className="text-lg font-semibold">{item.name}</h3>
-          <p className="text-gray-600">{item.description}</p>
-          <p className="text-gray-800 mt-2">Price: {item.price}</p>
-          <button className="bg-orange-900 text-white px-2 py-1 mt-2 rounded">
-            Add to Cart
-        </button>
-        </div>
+    <div className="rounded-lg flex flex-col items-start">
+      <div className="w-[390px] h-[390px] flex-shrink-0">
+        <img src={item.image} alt={item.name} className="w-full h-full object-cover flex" />
+      </div>
+      <div className="text-start mt-4 pl-10">
+        <h4 className="text-lg font-light text-black">{item.name}</h4>
+        <p className="text-base font-light text-black">{item.price}</p>
+        <p className="text-base font-light text-black">{item.description}</p>
       </div>
     </div>
+
+  
   );
 };
 

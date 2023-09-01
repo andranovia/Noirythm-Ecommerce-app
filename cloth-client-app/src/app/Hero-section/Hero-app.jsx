@@ -181,14 +181,14 @@ function HeroApp() {
   ));
 
   return (
-    <div className="relative flex justify-center items-center h-[91vh] font-poppins overflow-hidden bg-[url('/home-backgrund.jpg')] z-2">
+<div className="relative flex justify-center items-center h-[70vh] font-poppins overflow-hidden bg-[url('/home-backgrund.jpg')] bg-cover bg-no-repeat z-2 sm:h-[80vh]">
       <motion.div
-        className="absolute top-0 left-0 w-[33rem] h-full z-1 bg-white"
+        className="absolute top-0 left-0 w-[12rem] h-full z-1 bg-white sm:w-[30rem]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.8 }}
       >
         <motion.div
-          className="relative text-9xl font-bold flex flex-col items-end justify-center ml-[10rem] top-[7.2rem]"
+          className="relative text-6xl  font-bold flex flex-col items-end justify-center ml-[5rem] top-[7rem] sm:text-8xl sm:mr-5"
           initial="hidden"
         >
           <motion.div
@@ -200,7 +200,7 @@ function HeroApp() {
             {titleThree}
           </motion.div>
           <motion.div
-            className="heroTitleFourth mt-[2rem]"
+            className="heroTitleFourth mt-[2rem] "
             variants={containerVariants}
             initial="hidden"
             animate={controlsTwo}
@@ -216,11 +216,11 @@ function HeroApp() {
         animate={{ opacity: 0.8 }}
       />
       <motion.div
-        className="text-9xl font-bold flex flex-col items-start justify-center mr-[38rem] "
+        className="text-6xl font-bold flex flex-col items-start justify-center relative ml-[18rem] mb-[11rem] sm:text-8xl sm:mr-[45rem] "
         initial="hidden"
       >
         <motion.div
-          className="heroTitle text-white"
+          className="heroTitle text-white "
           variants={containerVariants}
           initial="hidden"
           animate={controlsTwo}
@@ -248,10 +248,10 @@ function HeroApp() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1, delay: 1 }}
-          className="h-[160px] w-[160px] rounded-full bg-white absolute flex items-center justify-center flex-col right-20"
+          className="h-[100px] w-[100px] rounded-full bg-white absolute flex items-center justify-center mt-[20rem] mr-[43rem] "
         >
           <motion.span
-          className="font-bold text-2xl"
+          className="font-bold text-xs"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
@@ -263,7 +263,7 @@ function HeroApp() {
             scroll
           </motion.span>
           <motion.span
-          className="font-bold text-2xl"
+          className="font-bold text-xs"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
