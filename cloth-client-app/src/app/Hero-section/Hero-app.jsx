@@ -181,14 +181,14 @@ function HeroApp() {
   ));
 
   return (
-<div className="relative flex justify-center items-center h-[70vh] font-poppins overflow-hidden bg-[url('/home-backgrund.jpg')] bg-cover bg-no-repeat z-2 sm:h-[80vh]">
+<div className="relative flex justify-center items-center h-[70vh] font-poppins overflow-hidden bg-[url('/home-backgrund.jpg')] bg-cover bg-no-repeat z-2 sm:h-screen">
       <motion.div
         className="absolute top-0 left-0 w-[12rem] h-full z-1 bg-white sm:w-[30rem]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.8 }}
       >
         <motion.div
-          className="relative text-6xl  font-bold flex flex-col items-end justify-center ml-[5rem] top-[7rem] sm:text-8xl sm:mr-5"
+          className="relative text-6xl  font-bold flex flex-col items-end justify-center ml-[5rem] top-[20%] sm:text-9xl sm:mr-5"
           initial="hidden"
         >
           <motion.div
@@ -216,7 +216,7 @@ function HeroApp() {
         animate={{ opacity: 0.8 }}
       />
       <motion.div
-        className="text-6xl font-bold flex flex-col items-start justify-center relative ml-[18rem] mb-[11rem] sm:text-8xl sm:mr-[45rem] "
+        className="text-6xl font-bold flex flex-col items-start justify-center relative bottom-[15%] left-20 mr-5 sm:text-9xl sm:mr-[47%] "
         initial="hidden"
       >
         <motion.div
@@ -248,10 +248,10 @@ function HeroApp() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1, delay: 1 }}
-          className="h-[100px] w-[100px] rounded-full bg-white absolute flex items-center justify-center mt-[20rem] mr-[43rem] "
+          className="h-[100px] w-[100px] rounded-full bg-white absolute flex items-center justify-center mt-[20rem] mr-[33rem] sm:w-[200px] sm:h-[200px] sm:bottom-[20%]"
         >
           <motion.span
-          className="font-bold text-xs"
+          className="font-bold text-xs sm:text-2xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
@@ -263,7 +263,7 @@ function HeroApp() {
             scroll
           </motion.span>
           <motion.span
-          className="font-bold text-xs"
+          className="font-bold text-xs sm:text-2xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{

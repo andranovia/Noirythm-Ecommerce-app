@@ -1,48 +1,33 @@
-import React from "react";
-import ClothingItemCard from "./Clothing-item-card";
+'use client'
+
+import React, { useEffect, useState } from 'react';
+import axiosInstance from './utils/api'; // Import the Axios instance from api.js
+import ClothingItemCard from './Clothing-item-card';
+
 
 const ClothingCardComponent = () => {
-  const clothingItems = [
-    {
-      name: "T-Shirt",
-      price: "$20",
-      image: "./img/card/card-2.jpg",
-      description: "A comfortable and stylish t-shirt.",
-    },
-    {
-      name: "Modern Cloth",
-      price: "$40",
-      image: "./img/card/card-1.jpg",
-      description: "Classic cultural cloth with modern style.",
-    },
+  const [clothingItems, setClothingItems] = useState([]);
 
-    {
-        name: "Modern Sweater",
-        price: "20$",
-        image: "./img/card/card-3.jpg",
-        description: "Modern stylish sweater design"
-    },
-    {
-        
-        name: "Modern Sweater",
-        price: "20$",
-        image: "./img/card/card-4.jpg",
-        description: "Modern stylish sweater design"
+  useEffect(() => {
 
-    },
-  ];
+    axiosInstance.get('/api/products') 
+      .then((response) => {
+        setClothingItems(response.data); 
+      })
+      .catch((error) => {
+        console.error('Error fetching clothing items:', error);
+      });
+  }, []);
+  
 
   return (
     <div className="flex justify-center">
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {clothingItems.map((item, index) => (
-        <ClothingItemCard key={index} item={item} />
-      ))}
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 lg:gap-0">
+        {clothingItems.map((item, index) => (
+          <ClothingItemCard key={index} item={item} />
+        ))}
+      </div>
     </div>
-  </div>
-  
-  
-  
   );
 };
 
