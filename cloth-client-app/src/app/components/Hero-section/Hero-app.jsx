@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { motion } from "framer-motion";
-import { useAnimation } from "framer-motion";
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useAnimation } from 'framer-motion';
 
 function HeroApp() {
   const textControls = useAnimation();
@@ -30,7 +30,7 @@ function HeroApp() {
       scaleX: 1,
       transition: {
         duration: 0.6,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       },
     },
   };
@@ -40,7 +40,7 @@ function HeroApp() {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: 'spring',
         damping: 8,
         stiffness: 100,
         staggerChildren: 0.04,
@@ -54,7 +54,7 @@ function HeroApp() {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: 'spring',
         damping: 8,
         stiffness: 100,
       },
@@ -71,34 +71,34 @@ function HeroApp() {
     },
   };
 
-  const animatedTextOne = "ATE";
-  const animatedTextTwo = "STYLE";
-  const animatedTextThree = "ELEV";
-  const animatedTextFour = "YOUR";
+  const animatedTextOne = 'ATE';
+  const animatedTextTwo = 'STYLE';
+  const animatedTextThree = 'ELEV';
+  const animatedTextFour = 'YOUR';
 
   useEffect(() => {
-    textControls.start("visible");
-    controlsTwo.start("animate");
-    controlsThree.start("animate");
-    controlsFour.start("visible");
+    textControls.start('visible');
+    controlsTwo.start('animate');
+    controlsThree.start('animate');
+    controlsFour.start('visible');
   }, [textControls, controlsTwo, controlsThree, controlsFour]);
 
-  const titleOne = animatedTextOne.split(" ").map((word, wordIndex) => (
-    <motion.div key={wordIndex} style={{ display: "inline-block" }}>
-      {word.split("").map((char, charIndex) => (
+  const titleOne = animatedTextOne.split(' ').map((word, wordIndex) => (
+    <motion.div key={wordIndex} style={{ display: 'inline-block' }}>
+      {word.split('').map((char, charIndex) => (
         <motion.span
           key={charIndex}
           variants={letterVariants}
-          style={{ display: "inline-block", width: "1ch" }}
+          style={{ display: 'inline-block', width: '1ch' }}
         >
           {char}
         </motion.span>
       ))}
-      {wordIndex !== animatedTextOne.split(" ").length - 1 && (
+      {wordIndex !== animatedTextOne.split(' ').length - 1 && (
         <motion.span
           key={`space-${wordIndex}`}
           variants={spaceVariant}
-          style={{ display: "inline-block", width: "0.5ch" }}
+          style={{ display: 'inline-block', width: '0.5ch' }}
         >
           &nbsp;
         </motion.span>
@@ -106,23 +106,23 @@ function HeroApp() {
     </motion.div>
   ));
 
-  const titleTwo = animatedTextTwo.split(" ").map((word, wordIndex) => (
+  const titleTwo = animatedTextTwo.split(' ').map((word, wordIndex) => (
     <motion.div
       key={wordIndex}
       variants={titleTwoWordvariants}
-      style={{ display: "inline-block" }}
+      style={{ display: 'inline-block' }}
     >
-      {word.split("").map((letter, letterIndex) => (
+      {word.split('').map((letter, letterIndex) => (
         <motion.span key={letterIndex} variants={titleTwoWordvariants}>
           {letter}
         </motion.span>
       ))}
       {}
-      {wordIndex !== animatedTextTwo.split(" ").length - 1 && (
+      {wordIndex !== animatedTextTwo.split(' ').length - 1 && (
         <motion.span
           key={`space-${wordIndex}`}
           variants={spaceVariant}
-          style={{ display: "inline-block", width: "0.5ch" }}
+          style={{ display: 'inline-block', width: '0.5ch' }}
         >
           &nbsp;
         </motion.span>
@@ -130,23 +130,23 @@ function HeroApp() {
     </motion.div>
   ));
 
-  const titleThree = animatedTextThree.split(" ").map((word, wordIndex) => (
+  const titleThree = animatedTextThree.split(' ').map((word, wordIndex) => (
     <motion.div
       key={wordIndex}
       variants={titleTwoWordvariants}
-      style={{ display: "inline-block" }}
+      style={{ display: 'inline-block' }}
     >
-      {word.split("").map((letter, letterIndex) => (
+      {word.split('').map((letter, letterIndex) => (
         <motion.span key={letterIndex} variants={titleTwoWordvariants}>
           {letter}
         </motion.span>
       ))}
       {}
-      {wordIndex !== animatedTextThree.split(" ").length - 1 && (
+      {wordIndex !== animatedTextThree.split(' ').length - 1 && (
         <motion.span
           key={`space-${wordIndex}`}
           variants={spaceVariant}
-          style={{ display: "inline-block", width: "0.5ch" }}
+          style={{ display: 'inline-block', width: '0.5ch' }}
         >
           &nbsp;
         </motion.span>
@@ -154,22 +154,22 @@ function HeroApp() {
     </motion.div>
   ));
 
-  const titleFour = animatedTextFour.split(" ").map((word, wordIndex) => (
-    <motion.div key={wordIndex} style={{ display: "inline-block" }}>
-      {word.split("").map((char, charIndex) => (
+  const titleFour = animatedTextFour.split(' ').map((word, wordIndex) => (
+    <motion.div key={wordIndex} style={{ display: 'inline-block' }}>
+      {word.split('').map((char, charIndex) => (
         <motion.span
           key={charIndex}
           variants={letterVariants}
-          style={{ display: "inline-block", width: "1ch" }}
+          style={{ display: 'inline-block', width: '1ch' }}
         >
           {char}
         </motion.span>
       ))}
-      {wordIndex !== animatedTextFour.split(" ").length - 1 && (
+      {wordIndex !== animatedTextFour.split(' ').length - 1 && (
         <motion.span
           key={`space-${wordIndex}`}
           variants={spaceVariant}
-          style={{ display: "inline-block", width: "0.5ch" }}
+          style={{ display: 'inline-block', width: '0.5ch' }}
         >
           &nbsp;
         </motion.span>
@@ -242,7 +242,7 @@ function HeroApp() {
       </motion.div>
       <div
         className={
-          "overflow-hidden flex items-center justify-center text-center "
+          'overflow-hidden flex items-center justify-center text-center '
         }
       >
         <motion.div
@@ -256,7 +256,7 @@ function HeroApp() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              ease: "easeInOut",
+              ease: 'easeInOut',
               duration: 1,
               delay: 1.8,
             }}
@@ -268,7 +268,7 @@ function HeroApp() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              ease: "easeInOut",
+              ease: 'easeInOut',
               duration: 1,
               delay: 1.8,
             }}

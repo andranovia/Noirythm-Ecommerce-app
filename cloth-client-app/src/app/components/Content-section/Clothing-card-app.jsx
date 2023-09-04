@@ -1,24 +1,22 @@
-'use client'
+'use client';
 
 import React, { useEffect, useState } from 'react';
-import axiosInstance from './utils/api'; // Import the Axios instance from api.js
+import axiosInstance from '../../utils/api'; // Import the Axios instance from api.js
 import ClothingItemCard from './Clothing-item-card';
-
 
 const ClothingCardComponent = () => {
   const [clothingItems, setClothingItems] = useState([]);
 
   useEffect(() => {
-
-    axiosInstance.get('/api/products') 
+    axiosInstance
+      .get('/api/products')
       .then((response) => {
-        setClothingItems(response.data); 
+        setClothingItems(response.data);
       })
       .catch((error) => {
         console.error('Error fetching clothing items:', error);
       });
   }, []);
-  
 
   return (
     <div className="flex justify-center ">

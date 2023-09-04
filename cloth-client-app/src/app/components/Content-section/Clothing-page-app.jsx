@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import ClothingCardComponent from "./Clothing-card-app";
+import React, { useState } from 'react';
+import ClothingCardComponent from './Clothing-card-app';
 
 const ClothingPage = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [sortBy, setSortBy] = useState("price"); 
-  const [filterBy, setFilterBy] = useState("all");
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState('price');
+  const [filterBy, setFilterBy] = useState('all');
 
   return (
     <div className="min-h-screen">
@@ -42,12 +42,11 @@ const ClothingPage = () => {
             </select>
           </div>
           <div className="mt-[2rem] p-4">
-          <ClothingCardComponent
-            searchQuery={searchQuery}
-            sortBy={sortBy}
-            filterBy={filterBy}
-            
-          />
+            <ClothingCardComponent
+              searchQuery={searchQuery}
+              sortBy={sortBy}
+              filterBy={filterBy}
+            />
           </div>
         </div>
       </div>

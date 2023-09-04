@@ -1,8 +1,7 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Dropdown from "./Navbar-components/Dropdown";
-import Transition from "./Navbar-components/Transition";
+import React, { useState } from 'react';
+import Transition from './Navbar-components/Transition';
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -258,11 +257,7 @@ const Navbar = () => {
                 </svg>
               </button>
 
-              <div className="flex-shrink-0">
-                <div className="h-30 p-4">
-                  <Dropdown />
-                </div>
-              </div>
+              <div className="flex-shrink-0"></div>
             </div>
           </div>
         </div>
