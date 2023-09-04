@@ -5,14 +5,14 @@ import ClothingCardComponent from "./Clothing-card-app";
 
 const ClothingPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortBy, setSortBy] = useState("price"); // Default sorting by price
-  const [filterBy, setFilterBy] = useState("all"); // Default filter option
+  const [sortBy, setSortBy] = useState("price"); 
+  const [filterBy, setFilterBy] = useState("all");
 
   return (
     <div className="min-h-screen">
-      <div className="container max-w-7xl mx-auto p-4">
-        <div className="bg-white  p-4 mb-4">
-          <h1 className="text-2xl font-semibold mb-2">Browse</h1>
+      <div className="container max-w-8xl mx-auto sm:max-w-7xl">
+        <div className="bg-white  mb-4">
+          <h1 className="text-2xl font-semibold my-4 ml-7">Browse</h1>
           <div className="flex flex-col justify-center md:flex-row gap-4">
             <input
               type="text"

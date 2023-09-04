@@ -20,12 +20,9 @@ function HeroApp() {
     },
   };
 
-
   const roundingText = {
-    initial: {opacity: 0
-    },
-
-  }
+    initial: { opacity: 0 },
+  };
 
   const lineVariants = {
     hidden: { scaleX: 0 },
@@ -181,7 +178,7 @@ function HeroApp() {
   ));
 
   return (
-<div className="relative flex justify-center items-center h-[70vh] font-poppins overflow-hidden bg-[url('/home-backgrund.jpg')] bg-cover bg-no-repeat z-2 sm:h-screen">
+    <div className="relative flex justify-center items-center h-[70vh] font-poppins overflow-hidden bg-[url('/home-backgrund.jpg')] bg-cover bg-no-repeat z-2 sm:h-screen">
       <motion.div
         className="absolute top-0 left-0 w-[12rem] h-full z-1 bg-white sm:w-[30rem]"
         initial={{ opacity: 0 }}
@@ -243,7 +240,11 @@ function HeroApp() {
           variants={lineVariants}
         />
       </motion.div>
-      <div className={"overflow-hidden flex items-center justify-center text-center "}>
+      <div
+        className={
+          "overflow-hidden flex items-center justify-center text-center "
+        }
+      >
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -251,7 +252,7 @@ function HeroApp() {
           className="h-[100px] w-[100px] rounded-full bg-white absolute flex items-center justify-center mt-[20rem] mr-[33rem] sm:w-[200px] sm:h-[200px] sm:bottom-[20%]"
         >
           <motion.span
-          className="font-bold text-xs sm:text-2xl"
+            className="font-bold text-xs sm:text-2xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
@@ -263,7 +264,7 @@ function HeroApp() {
             scroll
           </motion.span>
           <motion.span
-          className="font-bold text-xs sm:text-2xl"
+            className="font-bold text-xs sm:text-2xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{

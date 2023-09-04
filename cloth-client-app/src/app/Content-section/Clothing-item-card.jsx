@@ -2,8 +2,8 @@ import React from 'react';
 
 const ClothingItemCard = ({ item }) => {
   return (
-    <div className="rounded-lg flex flex-col items-start w-[20vh] lg:w-full">
-      <div className=" flex-shrink-0 h-[20vh] w-[20vh] lg:w-[40vh] lg:h-[40vh]">
+    <div className="rounded-lg flex flex-col items-start lg:w-full   ">
+      <div className=" flex-shrink-0 h-[20vh] w-[20vh] lg:w-[40vh] lg:h-[40vh] ">
         <img src={item.product_image} alt={item.product_name} className="w-full h-full object-cover flex" />
       </div>
       <div className="text-start mt-4 ">
