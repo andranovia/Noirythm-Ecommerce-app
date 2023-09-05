@@ -14,7 +14,7 @@ const ContactPage = () => {
             equality in our themes.
           </p>
           <p className="text-sm">Address: Toronto, USA, TR 10001</p>
-          <p className="text-sm">Email: locals@noirythm.id</p>w
+          <p className="text-sm">Email: locals@noirythm.id</p>
         </div>
 
         <div className="space-y-4 relative sm:left-[5rem]">

@@ -19,7 +19,17 @@ const CategoryApp = () => {
     {
       image: './img/categ/cloth.png',
       title: 'Cloth',
-      description: 'Explore the world of fashion',
+      description: 'Let the world knows',
+    },
+    {
+      image: './img/categ/jackets.png',
+      title: 'Jackets',
+      description: 'Warm down your cold',
+    },
+    {
+      image: './img/categ/shoes.png',
+      title: 'Shoes',
+      description: 'Express yourself',
     },
   ];
 

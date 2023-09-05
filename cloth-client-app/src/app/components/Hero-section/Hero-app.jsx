@@ -204,12 +204,7 @@ function HeroApp() {
           >
             {titleFour}
           </motion.div>
-          <motion.div
-          className="w-[16rem] h-[2px] mt-[16px] bg-black"
-          initial="hidden"
-          animate="visible"
-          variants={lineVariants}
-        />
+         
         </motion.div>
       </motion.div>
 
@@ -238,8 +233,13 @@ function HeroApp() {
         >
           {titleTwo}
         </motion.div>
-
-      
+        <motion.div
+            className="w-[16rem] h-[2px] mt-[16px] bg-black"
+            initial="hidden"
+            animate="visible"
+            variants={lineVariants}
+          />
+        
       </motion.div>
       <div
         className={
@@ -267,7 +267,7 @@ function HeroApp() {
           <motion.span
             className="font-bold text-xs sm:text-2xl"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 1 }}  
             transition={{
               ease: 'easeInOut',
               duration: 1,

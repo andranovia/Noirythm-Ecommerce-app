@@ -6,9 +6,15 @@ import Transition from './Navbar-components/Transition';
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  const navbarStyles = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1000,
+  };
   return (
-    <div className="relative flex overflow-hidden ">
+    <div className="relative flex overflow-hidden  " style={navbarStyles}>
       <Transition show={isSidebarOpen} appear={true}>
         <div className="fixed inset-0 flex z-40">
           <Transition

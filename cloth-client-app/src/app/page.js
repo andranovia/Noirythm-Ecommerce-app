@@ -6,13 +6,12 @@ import ContainerCarouselCateg from './components/Carousel-categ-section/Containe
 
 export default function Home() {
   return (
-    <>
+    <div className="container">
       <Navbar />
       <HeroApp />
-
       <ContainerCarouselCateg />
       <ClothingPage />
       <ContactPage />
-    </>
+    </div>
   );
 }
