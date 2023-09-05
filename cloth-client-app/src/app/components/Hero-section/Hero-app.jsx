@@ -204,6 +204,12 @@ function HeroApp() {
           >
             {titleFour}
           </motion.div>
+          <motion.div
+          className="w-[16rem] h-[2px] mt-[16px] bg-black"
+          initial="hidden"
+          animate="visible"
+          variants={lineVariants}
+        />
         </motion.div>
       </motion.div>
 
@@ -233,12 +239,7 @@ function HeroApp() {
           {titleTwo}
         </motion.div>
 
-        <motion.div
-          className="w-[16rem] h-[2px] mt-[16px] bg-black"
-          initial="hidden"
-          animate="visible"
-          variants={lineVariants}
-        />
+      
       </motion.div>
       <div
         className={
