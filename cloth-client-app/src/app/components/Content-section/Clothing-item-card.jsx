@@ -7,7 +7,7 @@ const ClothingItemCard = ({ item }) => {
         <img
           src={item.product_image}
           alt={item.product_name}
-          className="w-full h-full object-cover flex "
+          className="w-full h-full object-cover flex rounded-lg "
         />
       </div>
       <div className="text-start mt-4 ml-3 p-3  ">

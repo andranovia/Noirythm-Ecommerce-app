@@ -20,7 +20,7 @@ const ClothingCardComponent = () => {
 
   return (
     <div className="flex justify-center ">
-      <div className="grid gap-[3vh] grid-cols-2 md:grid-cols-4 lg:grid-cols-4 lg:gap-0">
+      <div className="grid gap-[3vh] grid-cols-2 md:grid-cols-4 lg:grid-cols-4 lg:gap-10">
         {clothingItems.map((item, index) => (
           <ClothingItemCard key={index} item={item} />
         ))}
