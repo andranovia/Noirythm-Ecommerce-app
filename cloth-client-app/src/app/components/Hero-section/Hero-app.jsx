@@ -1,14 +1,29 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useAnimation } from 'framer-motion';
+import CircleType from 'circletype';
 
 function HeroApp() {
-  const textControls = useAnimation();
-  const controlsTwo = useAnimation();
-  const controlsThree = useAnimation();
-  const controlsFour = useAnimation();
+  const controlsAnimate = useAnimation();
+  const circleTypeRef = useRef();
+
+  useEffect(() => {
+    const circleType = new CircleType(document.getElementById('textCircular'));
+
+    const handleScroll = () => {
+      const offset = window.scrollY * 0.4;
+
+      circleType.element.style.transform = `rotate(${offset}deg)`;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 1 },
@@ -20,21 +35,7 @@ function HeroApp() {
     },
   };
 
-  const roundingText = {
-    initial: { opacity: 0 },
-  };
-
-  const lineVariants = {
-    hidden: { scaleX: 0 },
-    visible: {
-      scaleX: 1,
-      transition: {
-        duration: 0.6,
-        ease: 'easeInOut',
-      },
-    },
-  };
-  const titleTwoWordvariants = {
+  const letterTwoVariants = {
     hidden: { opacity: 0, y: 20 },
     animate: {
       opacity: 1,
@@ -71,157 +72,64 @@ function HeroApp() {
     },
   };
 
-  const animatedTextOne = 'ATE';
-  const animatedTextTwo = 'STYLE';
-  const animatedTextThree = 'ELEV';
-  const animatedTextFour = 'YOUR';
-
   useEffect(() => {
-    textControls.start('visible');
-    controlsTwo.start('animate');
-    controlsThree.start('animate');
-    controlsFour.start('visible');
-  }, [textControls, controlsTwo, controlsThree, controlsFour]);
+    controlsAnimate.start('animate');
+  }, [controlsAnimate]);
 
-  const titleOne = animatedTextOne.split(' ').map((word, wordIndex) => (
-    <motion.div key={wordIndex} style={{ display: 'inline-block' }}>
-      {word.split('').map((char, charIndex) => (
-        <motion.span
-          key={charIndex}
-          variants={letterVariants}
-          style={{ display: 'inline-block', width: '1ch' }}
-        >
-          {char}
-        </motion.span>
-      ))}
-      {wordIndex !== animatedTextOne.split(' ').length - 1 && (
-        <motion.span
-          key={`space-${wordIndex}`}
-          variants={spaceVariant}
-          style={{ display: 'inline-block', width: '0.5ch' }}
-        >
-          &nbsp;
-        </motion.span>
-      )}
-    </motion.div>
-  ));
+  const createAnimatedText = (text, variants) => {
+    return text.split(' ').map((word, wordIndex) => (
+      <motion.div key={wordIndex} style={{ display: 'inline-block' }}>
+        {word.split('').map((char, charIndex) => (
+          <motion.span
+            key={charIndex}
+            variants={letterVariants}
+            style={{ display: 'inline-block', width: '1ch' }}
+          >
+            {char}
+          </motion.span>
+        ))}
+        {wordIndex !== text.split(' ').length - 1 && (
+          <motion.span
+            key={`space-${wordIndex}`}
+            variants={spaceVariant}
+            style={{ display: 'inline-block', width: '0.5ch' }}
+          >
+            &nbsp;
+          </motion.span>
+        )}
+      </motion.div>
+    ));
+  };
 
-  const titleTwo = animatedTextTwo.split(' ').map((word, wordIndex) => (
-    <motion.div
-      key={wordIndex}
-      variants={titleTwoWordvariants}
-      style={{ display: 'inline-block' }}
-    >
-      {word.split('').map((letter, letterIndex) => (
-        <motion.span key={letterIndex} variants={titleTwoWordvariants}>
-          {letter}
-        </motion.span>
-      ))}
-      {}
-      {wordIndex !== animatedTextTwo.split(' ').length - 1 && (
-        <motion.span
-          key={`space-${wordIndex}`}
-          variants={spaceVariant}
-          style={{ display: 'inline-block', width: '0.5ch' }}
-        >
-          &nbsp;
-        </motion.span>
-      )}
-    </motion.div>
-  ));
+  const animatedTextWhiteOne = 'ATE';
+  const animatedTextWhiteTwo = 'STYLE';
+  const animatedTextBlackOne = 'ELEV';
+  const animatedTextBlackTwo = 'YOUR';
 
-  const titleThree = animatedTextThree.split(' ').map((word, wordIndex) => (
-    <motion.div
-      key={wordIndex}
-      variants={titleTwoWordvariants}
-      style={{ display: 'inline-block' }}
-    >
-      {word.split('').map((letter, letterIndex) => (
-        <motion.span key={letterIndex} variants={titleTwoWordvariants}>
-          {letter}
-        </motion.span>
-      ))}
-      {}
-      {wordIndex !== animatedTextThree.split(' ').length - 1 && (
-        <motion.span
-          key={`space-${wordIndex}`}
-          variants={spaceVariant}
-          style={{ display: 'inline-block', width: '0.5ch' }}
-        >
-          &nbsp;
-        </motion.span>
-      )}
-    </motion.div>
-  ));
-
-  const titleFour = animatedTextFour.split(' ').map((word, wordIndex) => (
-    <motion.div key={wordIndex} style={{ display: 'inline-block' }}>
-      {word.split('').map((char, charIndex) => (
-        <motion.span
-          key={charIndex}
-          variants={letterVariants}
-          style={{ display: 'inline-block', width: '1ch' }}
-        >
-          {char}
-        </motion.span>
-      ))}
-      {wordIndex !== animatedTextFour.split(' ').length - 1 && (
-        <motion.span
-          key={`space-${wordIndex}`}
-          variants={spaceVariant}
-          style={{ display: 'inline-block', width: '0.5ch' }}
-        >
-          &nbsp;
-        </motion.span>
-      )}
-    </motion.div>
-  ));
+  const titleOne = createAnimatedText(animatedTextWhiteOne, letterVariants);
+  const titleTwo = createAnimatedText(animatedTextWhiteTwo, letterTwoVariants);
+  const titleThree = createAnimatedText(
+    animatedTextBlackOne,
+    letterTwoVariants,
+  );
+  const titleFour = createAnimatedText(animatedTextBlackTwo, letterTwoVariants);
 
   return (
     <div className="relative flex justify-center items-center h-[70vh] font-poppins overflow-hidden bg-[url('/home-backgrund.jpg')] bg-cover bg-no-repeat z-2 sm:h-screen">
-      <motion.div
-        className="absolute top-0 left-0 w-[12rem] h-full z-1 bg-white sm:w-[30rem]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.8 }}
-      >
-        <motion.div
-          className="relative text-6xl  font-bold flex flex-col items-end justify-center ml-[5rem] top-[20%] sm:text-9xl sm:mr-5"
-          initial="hidden"
-        >
-          <motion.div
-            className="heroTitleThree "
-            variants={containerVariants}
-            initial="hidden"
-            animate={controlsThree}
-          >
-            {titleThree}
-          </motion.div>
-          <motion.div
-            className="heroTitleFourth mt-[2rem] "
-            variants={containerVariants}
-            initial="hidden"
-            animate={controlsTwo}
-          >
-            {titleFour}
-          </motion.div>
-         
-        </motion.div>
-      </motion.div>
-
       <motion.div
         className="relative top-0 left-0 w-full h-full z-1 "
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.8 }}
       />
       <motion.div
-        className="text-6xl font-bold flex flex-col items-start justify-center relative bottom-[15%] left-20 mr-5 sm:text-9xl sm:mr-[47%] "
+        className="w-screen text-5xl font-bold flex flex-col items-start justify-center relative bottom-[15%] left-30 sm:text-9xl sm:right-[10%] sm:w-screen "
         initial="hidden"
       >
         <motion.div
-          className="heroTitle text-white "
+          className="heroTitle text-white  "
           variants={containerVariants}
           initial="hidden"
-          animate={controlsTwo}
+          animate={controlsAnimate}
         >
           {titleOne}
         </motion.div>
@@ -229,53 +137,77 @@ function HeroApp() {
           className="heroTitleTwo text-white mt-[2rem]"
           variants={containerVariants}
           initial="hidden"
-          animate={controlsTwo}
+          animate={controlsAnimate}
         >
           {titleTwo}
         </motion.div>
-        <motion.div
-            className="w-[16rem] h-[2px] mt-[16px] bg-black"
-            initial="hidden"
-            animate="visible"
-            variants={lineVariants}
-          />
-        
       </motion.div>
+      <motion.div
+        className="absolute top-0 left-0 w-[12rem] h-full z-1 bg-white sm:w-[30rem]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.8 }}
+      >
+        <motion.div
+          className="relative font-bold flex flex-col items-end justify-center ml-[4rem] top-[20%] sm:text-9xl sm:mr-5"
+          initial="hidden"
+        >
+          <motion.div
+            className="heroTitleThree text-5xl sm:text-9xl   "
+            variants={containerVariants}
+            initial="hidden"
+            animate={controlsAnimate}
+          >
+            {titleThree}
+          </motion.div>
+          <motion.div
+            className="heroTitleFourth mt-[2rem] text-6xl ml-[1rem] sm:text-9xl  "
+            variants={containerVariants}
+            initial="hidden"
+            animate={controlsAnimate}
+          >
+            {titleFour}
+          </motion.div>
+        </motion.div>
+      </motion.div>
+
       <div
         className={
           'overflow-hidden flex items-center justify-center text-center '
         }
       >
         <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1, delay: 1 }}
-          className="h-[100px] w-[100px] rounded-full bg-white absolute flex items-center justify-center mt-[20rem] mr-[33rem] sm:w-[200px] sm:h-[200px] sm:bottom-[20%]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            ease: 'easeInOut',
+            duration: 1,
+          }}
+          className="h-[120px] w-[120px] rounded-full bg-white absolute flex items-center justify-center mt-[20rem] mr-[37rem] sm:w-[200px] sm:h-[200px] sm:bottom-[20%]"
         >
-          <motion.span
-            className="font-bold text-xs sm:text-2xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              ease: 'easeInOut',
-              duration: 1,
-              delay: 1.8,
-            }}
-          >
-            scroll
-          </motion.span>
-          <motion.span
-            className="font-bold text-xs sm:text-2xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}  
-            transition={{
-              ease: 'easeInOut',
-              duration: 1,
-              delay: 1.8,
-            }}
-          >
-            down
-          </motion.span>
+          <div className="circular-text" ref={circleTypeRef} id="textCircular">
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                ease: 'easeInOut',
+                duration: 1,
+                delay: 1.8,
+              }}
+            >
+              &#8226; scrolling down &#8226;
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                ease: 'easeInOut',
+                duration: 1,
+                delay: 1.8,
+              }}
+            >
+              look around
+            </motion.span>
+          </div>
         </motion.div>
       </div>
     </div>
